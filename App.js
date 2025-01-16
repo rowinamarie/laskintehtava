@@ -1,9 +1,14 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { Alert, Button, StyleSheet, Text, View, TextInput } from 'react-native';
 
 export default function App() {
 
   const [text, setText] = useState("");
+
+
+  const handlePress = () => {
+    Alert.alert("You typed: " + text);
+  };
 
   return (
     <View style={styles.container}>
@@ -13,6 +18,8 @@ export default function App() {
         placeholder='Ensimmäinen luku'
         onChangeText={text => setText(text)}
         value={text} />
+
+      <Button onPress={handlePress} title="Press me" />
     </View>
 
   )
