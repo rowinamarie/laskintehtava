@@ -3,29 +3,33 @@ import { Alert, Button, StyleSheet, Text, View, TouchableOpacity, TextInput } fr
 
 export default function App() {
 
-  const [text, setText] = useState("");
-
+  const [luku1, setLuku1] = useState("");
+  const [luku2, setLuku2] = useState("");
+  const [tulos, setTulos] = useState(null);
+  
   const Painike = ({ onPress, title }) => (
     <TouchableOpacity onPress={onPress} style={styles.buttonContainer}>
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
 
+  const Plussa 
+
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 18, marginBottom: 20 }}>Result: </Text>
+      <Text style={{ fontSize: 18, marginBottom: 20 }}>Result:  </Text>
 
       <View style={styles.textInputs}>
         <TextInput
           placeholder='Ensimmäinen luku'
-          onChangeText={text => setText(text)}
-          value={text} style={styles.input} />
+          onChangeText={luku1 => setLuku1(luku1)}
+          value={luku1} style={styles.input} />
 
-        <TextInput
-          placeholder='Toinen luku'
-          onChangeText={text => setText(text)}
-          value={text} style={styles.input} />
+<TextInput
+          placeholder='Ensimmäinen luku'
+          onChangeText={luku2 => setLuku1(luku2)}
+          value={luku2} style={styles.input} />
       </View>
 
       <View style={styles.buttons}>
@@ -33,7 +37,6 @@ export default function App() {
         <Painike title="-" backgroundColor="#007bff" />
       </View>
     </View>
-
   )
 }
 
