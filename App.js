@@ -6,19 +6,22 @@ export default function App() {
   const [luku1, setLuku1] = useState("");
   const [luku2, setLuku2] = useState("");
   const [tulos, setTulos] = useState(null);
-  
+
   const Painike = ({ onPress, title }) => (
     <TouchableOpacity onPress={onPress} style={styles.buttonContainer}>
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
 
-  const Plussa 
+  const plusPressed = () => {
+    const sum = parseFloat(luku1) + parseFloat (luku2);
+    setTulos(sum);
+  } 
 
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 18, marginBottom: 20 }}>Result:  </Text>
+      <Text style={{ fontSize: 18, marginBottom: 20 }}>Result: {tulos}  </Text>
 
       <View style={styles.textInputs}>
         <TextInput
@@ -26,14 +29,14 @@ export default function App() {
           onChangeText={luku1 => setLuku1(luku1)}
           value={luku1} style={styles.input} />
 
-<TextInput
-          placeholder='Ensimmäinen luku'
-          onChangeText={luku2 => setLuku1(luku2)}
+        <TextInput
+          placeholder='Toinen luku'
+          onChangeText={luku2 => setLuku2(luku2)}
           value={luku2} style={styles.input} />
       </View>
 
       <View style={styles.buttons}>
-        <Painike title="+" backgroundColor="#007bff" />
+        <Painike onPress={plusPressed} title="+" backgroundColor="#007bff" />
         <Painike title="-" backgroundColor="#007bff" />
       </View>
     </View>
