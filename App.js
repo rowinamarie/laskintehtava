@@ -18,6 +18,12 @@ export default function App() {
     setTulos(sum);
   } 
 
+  const miinusPressed = () => {
+    const difference = parseFloat(luku1) - parseFloat (luku2);
+    setTulos(difference);
+  } 
+
+
 
   return (
     <View style={styles.container}>
@@ -27,17 +33,20 @@ export default function App() {
         <TextInput
           placeholder='Ensimmäinen luku'
           onChangeText={luku1 => setLuku1(luku1)}
+          inputMode='numeric'
           value={luku1} style={styles.input} />
 
         <TextInput
           placeholder='Toinen luku'
-          onChangeText={luku2 => setLuku2(luku2)}
+          onChangeText={luku2 => setLuku2(luku2)} 
+          inputMode='numeric'
           value={luku2} style={styles.input} />
       </View>
 
       <View style={styles.buttons}>
         <Painike onPress={plusPressed} title="+" backgroundColor="#007bff" />
-        <Painike title="-" backgroundColor="#007bff" />
+
+        <Painike onPress={miinusPressed} title="-" backgroundColor="#007bff" />
       </View>
     </View>
   )
